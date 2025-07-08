@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (homeButton) {
     homeButton.addEventListener("click", function (e) {
       e.preventDefault();
-      window.location.href = "proj1.html"; // Replace with your desired page
+      window.location.href = "https://portal.jkuat.ac.ke/"; // Replace with your desired page
     });
   }
 
