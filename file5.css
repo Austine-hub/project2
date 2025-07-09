@@ -337,3 +337,46 @@ button:focus {
   transform: translateY(-1px);
 }
 
+/* === SEARCH BAR === */
+.search-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.search-container input[type="text"] {
+  padding: 6px;
+  width: 150px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  color: #000;
+}
+
+.search-container input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px #ffd700;
+  background-color: #222;
+  color: #fff;
+}
+
+.search-container button {
+  padding: 6px 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.search-container button:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
