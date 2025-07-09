@@ -1,245 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Health Report</title>
-  <link rel="stylesheet" href="../NEW/css/web1.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=ent" />
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AJANJA Pharmaceutical Services Africa</title>
+  <meta name="description" content="AjanjaCare Pharmaceuticals AFRICA - Your trusted partner in health, wellness, telepharmacy, and personalized pharmaceutical care across Africa." />
+  <link rel="icon" href="photos/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="file5.css" />
 </head>
+
 <body>
-  <header class="header-bar">
-    <img src="images/pic1.png" alt="Kenya Revenue Authority Logo" class="kra-logo">
-    <div><h1>Welcome to Your Personalized Medical Studies</h1></div>
-       <div class="social-icons">
-                <a href="https://www.facebook.com/theggodofwolves/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://x.com/AjanjaAustine" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://wa.me/254115717598" target="_blank"><i class="fab fa-whatsapp"></i></a>                
+
+  <a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
+
+  <header role="banner">
+    <div class="topbar">
+      <img src="photos/logo1.png" alt="AjanjaCare Pharmaceuticals logo" class="kra-logo" />
+      <h1>AjanjaCare Pharmaceuticals AFRICA</h1>
+      <button onclick="toggleTheme()">Toggle Theme</button>
+      <img src="photos/logo1.png" alt="AjanjaCare Pharmaceuticals logo" class="kra-logo" />
+    </div>
+
+    <nav role="navigation" aria-label="Main site navigation">
+      <ul class="navbar">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Branches</a></li>
+        <li><a href="#">Drugs Available</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Experts</a></li>
+      </ul>
+    </nav>
+
+    <div class="banner" role="region" aria-label="Promotional Banner">
+      <div class="banner-sub">
+        <img src="photos/banner1.png" alt="Smiling pharmacist with a client" class="floating-photo" />
+        <div class="slogan-text" role="presentation">
+          <p>Your Trusted Partner in Health &amp; Wellness.</p>
+          <p>Serving You, Beyond the Counter.</p>
+          <p>Because Your Health Is Our Priority.</p>
         </div>
-    <img src="images/pic2.png" alt="iTax Logo" class="itax-logo">
+      </div>
+    </div>
   </header>
 
-  <nav class="main-nav" aria-label="Main Navigation">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li class="dropdown">
-        <a href="#">Registration</a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Requirements</a></li>
-          <li><a href="#">Financials</a></li>
-          <li><a href="#">Help</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">Medical Reports</a>
-        <ul class="dropdown-menu">
-          <li><a href="#" id="Imed1">Pulmonology</a></li>
-          <li><a href="#">Neurology</a></li>
-          <li><a href="#">Nephrology</a></li>
-          <li><a href="#">Cardiology</a></li>
-          <li><a href="#">Gastroenterology</a></li>
-          <li><a href="#">Endocrinology</a></li>
-          <li><a href="#">Rheumatology</a></li>
-          <li><a href="#">Hematology</a></li>
-          <li><a href="#">Oncology</a></li>
-          <li><a href="#">Infectious Disease</a></li>
-          <li><a href="#">Allergy and Immunology</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">Surgical Reports</a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Fluids and Electrolytes</a></li>
-          <li><a href="#">Perioperative Care</a></li>
-          <li><a href="#">Chest Injuries</a></li>
-          <li><a href="#">Abdominal Injuries</a></li>
-          <li class="dropdown">
-            <a href="#">Abdominal Conditions</a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Acute Abdomen</a></li>
-              <li><a href="#">Intestinal Obstruction</a></li>
-              <li><a href="#">Esophageal Disorders</a></li>
-              <li><a href="#">GERD</a></li>
-              <li><a href="#">Stomach Cancer</a></li>
-              <li><a href="#">Surgical Jaundice</a></li>
-              <li><a href="#">Pancreatic Disorders</a></li>
-              <li><a href="#">Colorectal Cancer</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Thyroid Gland Disorders</a></li>
-          <li><a href="#">Polytrauma</a></li>
-          <li><a href="#">Critical Care</a></li>
-          <li><a href="#">Neurotrauma</a></li>
-          <li><a href="#">Burns</a></li>
-          <li class="dropdown">
-            <a href="#">Urological Conditions</a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Hernias</a></li>
-              <li><a href="#">Testicular & Scrotal Conditions</a></li>
-              <li><a href="#">Anorectal Conditions</a></li>
-              <li><a href="#">Obstructive Uropathy</a></li>
-              <li><a href="#">Prostate Diseases</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#">Breast Conditions</a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Benign</a></li>
-              <li><a href="#">Malignant</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">Orthopaedics</a>
-        <ul class="dropdown-menu">
-          <li><a href="#" id="f1">Introduction to Fractures</a></li>
-          <li><a href="#">ORIF</a></li>
-          <li><a href="#">MSK Infections</a></li>
-          <li><a href="#">Pelvic Fractures</a></li>
-          <li><a href="#">Knee Injuries</a></li>
-          <li><a href="#">Ankle and Foot Injuries</a></li>
-          <li><a href="#">Upper Limb Injuries</a></li>
-          <li><a href="#">Principles of Bone Tumors</a></li>
-          <li class="dropdown">
-            <a href="#">Pediatric Fractures</a>
-            <ul class="dropdown-menu">
-              <li><a href="#">MSK Development</a></li>
-              <li><a href="#">Pediatric Fracture Management</a></li>
-              <li><a href="#">Physeal Injuries</a></li>
-              <li><a href="#">Supracondylar Humeral Fractures</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    <li class="dropdown"><a href="#">NOTES</a>
-            <ul class="dropdown-menu">
-              <li class="dropdown"><a href="#">JKUAT</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#" id="JKUATgenSurgery">General Surgery</a></li>
-                                        <li><a href="#" id="JKUATortho">Orthopaedics</a></li>
-                                        <li><a href="#" id="JKUATobgyn">OBSGYN</a></li>
-                                        <li><a href="#" id="JKUATiMED">IMED</a></li>
-                                    </ul>
-            </li>
-              <li class="dropdown"><a href="#">Egerton</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#" id="EgertongenSurg">General Surgery</a></li>
-                                        <li><a href="#">Orthopaedics</a></li>
-                                        <li><a href="#" id="EgertonOBGSGYN">OBGSGYN</a></li>
-                                        <li><a href="#" id="iMED">EgertoniMED</a></li>
-                                    </ul>
-            </li>
-              <li><a href="#">UON</a></li>
-              <li><a href="#">KU</a></li>
-            </ul>
-      </li>
-      <li><a href="#">Payment Methods</a></li>
-      <li><a href="#" id="psych">Psychiatric Evaluation</a></li>
-      <li class="dropdown"><a href="#">Useful Links</a>              
-                                   <ul class="dropdown-menu">
-                                        <li><a href="#" id="kiiriobs">KIIRI OBGYN</a></li>
-                                        <li><a href="#">Orthopaedics</a></li>
-                                        <li><a href="#" id="EgertonOBGSGYN">OBGSGYN</a></li>
-                                        <li><a href="#" id="iMED">EgertoniMED</a></li>
-                                    </ul>
-      </li>
-    </ul>
-  </nav>
+  <main id="main-content">
+    <section class="info-row" aria-label="Company Overview and Services">
+      <article class="info-box">
+        <img src="photos/banner2.png" alt="Pharmacist holding a prescription bag" />
+        <h3>One Stop for Total Health Solutions</h3>
+        <p>We go beyond medicines; we deliver wellness and personalized care.</p>
+        <p>Join our expert team for quality service every prescription, every time.</p>
+      </article>
 
-  <section class="user-info">
-    <span><i class="fa fa-user"></i> Welcome Austine Odhiambo (A017327327) - Last Login: JUN 20, 2025 08:47:06</span>
-  </section>
+      <article class="info-box">
+        <h3>Our Services</h3>
+        <p>Drugs Prescription</p>
+        <p>Dispensing &amp; Medication Management</p>
+        <p>Immunizations &amp; Vaccinations</p>
+        <p>Health Screenings &amp; Diagnostic Tests</p>
+        <p>Personalized Medication Counseling</p>
+        <p>Home Delivery &amp; Online Refills</p>
+        <p>Telepharmacy (Virtual Consultations)</p>
+      </article>
 
-  <h2 class="dashboard-title">Your Health Report for July 2025</h2>
+      <article class="info-box">
+        <img src="photos/banner3.png" alt="Advanced pharmaceutical equipment" />
+        <h3>Advanced Services</h3>
+        <p>Telepharmacy for virtual medical consultations</p>
+        <p>Custom compounding of medications</p>
+        <p>Wellness products including vitamins and herbal supplements</p>
+      </article>
+    </section>
 
-  <main class="dashboard-container">
-    <div class="dashboard-row">
-      <div class="dashboard-card" id="dash1">
-        <div class="card-title">Cardiology Status</div>
-        <div class="card-icon"><i class="fa fa-heartbeat"></i></div>
-        <div class="card-value">0</div>
-        <div class="card-label">Normal</div>
-        <div class="card-sub">
-          <span>Cardiologist Notes</span>
-          <span>N/A</span>
+    <section class="mission-row" aria-label="Mission and Outreach">
+      <article class="mission-box">
+        <h3>KIDS Health</h3>
+        <p>Fun, education, and wellness for children of all ages.</p>
+      </article>
+
+      <article class="mission-main">
+        <h2>On a Mission</h2>
+        <img src="photos/banner4.png" alt="AjanjaCare outreach program team" />
+        <p>Serving our community and beyond with love, care, and compassion.</p>
+      </article>
+
+      <article class="mission-box">
+        <h3>Ladies' Pharmacy</h3>
+        <p>Empowering women through personalized wellness and care services.</p>
+      </article>
+    </section>
+
+    <section class="bible-study" aria-label="Community Engagement">
+        <div class="large-box">
+            <h2>Get Involved</h2>
+            <p>Because Your Health Matters.</p>
         </div>
-      </div>
 
-      <div class="dashboard-card" id="dash2">
-        <div class="card-title">Pulmonology Status</div>
-        <div class="card-icon"><i class="fa fa-lungs"></i></div>
-        <div class="card-value">0</div>
-        <div class="card-label">Normal</div>       
-             <div class="card-sub">
-                <span>Respiratory Medicine Specialist Notes</span>
-                <span>N/A</span>
-             </div>
-      </div>
-    </div>
-
-    <div class="dashboard-row">
-      <div class="dashboard-card">
-        <div class="card-title">Gastroenterology Status</div>
-        <div class="card-icon"><i class="fa fa-stethoscope"></i></div>
-        <div class="card-value">0</div>
-        <div class="card-label">Normal</div>
-      </div>
-
-      <div class="dashboard-card">
-        <div class="card-title">Urology Status</div>
-        <div class="card-icon"><i class="fa fa-toilet"></i></div>
-        <div class="card-value">0</div>
-        <div class="card-label">Normal</div>
-      </div>
-    </div>
-
-    <div class="dashboard-row">
-      <div class="dashboard-card">
-        <div class="card-title">Orthopaedic Report</div>
-        <div class="card-icon"><i class="fa fa-bone"></i></div>
-        <div class="card-value">0</div>
-        <div class="card-label">Normal</div>
-      </div>
-
-      <div class="dashboard-card">
-        <div class="card-title">Neurology Status</div>
-        <div class="card-icon"><i class="fa fa-brain"></i></div>
-        <div class="card-value">0</div>
-        <div class="card-label">Normal</div>
-      </div>
-    </div>
-
-
-    <div class="dashboard-row">
-      <div class="dashboard-card">
-        <div class="card-title">Ophthalmology Report</div>
-        <div class="card-icon"><i class="fa fa-eye"></i></div>
-        <div class="card-value">0</div>
-        <div class="card-label">Normal</div>
-      </div>
-
-      <div class="dashboard-card">
-        <div class="card-title">ENT Status</div>
-        <div class="card-icon"> <i class="fas fa-ear-listen"></i>
-        <span class="material-symbols-outlined"></span>
+        <div class="small-box">
+             <img src="photos/banner5.png" alt="AjanjaCare outreach program team" />
         </div>
-        <div class="card-value">0</div>
-        <div class="card-label">Normal</div>
-      </div>
-    </div>
+
+        <div class="small-box">
+          <img src="photos/Banner6.png" alt="Community members at a wellness forum" />
+        </div>
+    </section>
+
+
+    <section class="bottom-row" aria-label="Additional Programs">
+      <article class="bottom-box">
+        <h3>Sermons</h3>
+        <p>Explore past inspirational health talks and spiritual guidance sessions.</p>
+      </article>
+
+      <article class="bottom-box">
+        <h3>Ministries</h3>
+        <p>Join our health ministries and be part of positive transformation.</p>
+      </article>
+
+      <article class="bottom-box">
+        <h3>Activities</h3>
+        <p>Engage in health-driven community activities and awareness programs.</p>
+      </article>
+    </section>
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-bar">
-      <span>Kenya Vision 2030</span>
-      <span>Times Tower, Haile Selassie Avenue, P.O. Box 48240 - 00100 GPO Nairobi<br>Tel: 020-310900, 020-281000 Fax: 341342</span>
+      <p>&copy; 2026 AjanjaCare Pharmaceuticals AFRICA. All rights reserved.</p>
     </div>
   </footer>
-
-  <script src="js/web1.js"></script>
-
+<!-- This is a comment -->
+<script src="file5.js"></script>
 </body>
 </html>
+
