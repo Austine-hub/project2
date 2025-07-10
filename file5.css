@@ -89,13 +89,21 @@ nav {
   padding: 1em 0 0.5em;
 }
 
+.kra-logo,
+.info-box img,
+.mission-box img,
+.mission-main img,
+.bible-study img,
+.floating-photo {
+  display: block;
+  object-fit: cover;
+  max-width: 100%;
+}
+
 .kra-logo {
   width: 120px;
   height: 100px;
-  display: block;
-  object-fit: cover;
   border-radius: 70%;
-  max-width: 100%;
 }
 
 .banner-text {
@@ -125,12 +133,18 @@ main {
 
 /* === LAYOUT ROWS === */
 .info-row,
-.mission-row,
-.bottom-row {
+.mission-row {
   display: flex;
   justify-content: space-between;
   margin: 1.2em 0;
   gap: 1em;
+}
+
+.bottom-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.2em 0;
 }
 
 /* === BOX STYLES === */
@@ -143,11 +157,6 @@ main {
   border-radius: 8px;
   text-align: center;
   padding: 1em;
-}
-
-.info-box,
-.mission-box,
-.bottom-box {
   background: #400b0b;
   flex: 1;
   margin: 0 0.2em;
@@ -157,12 +166,14 @@ main {
 .mission-main {
   flex: 2;
   background: #7a1818;
-  margin: 0 0.2em;
+}
+
+.bottom-box {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* === BIBLE STUDY SECTION === */
 .bible-study {
-  background: #400b0b;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
@@ -189,51 +200,17 @@ main {
 .small-box img {
   width: 100%;
   height: auto;
-  max-width: 100%;
   border-radius: 8px;
-  object-fit: cover;
-}
-
-/* === RESPONSIVE STACKING === */
-@media (max-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-
-  .large-box {
-    grid-column: auto;
-  }
-
-  .search-container {
-    display: none;
-  }
-}
-
-@media (max-width: 900px) {
-  .info-row,
-  .mission-row,
-  .bottom-row {
-    flex-direction: column;
-    gap: 0.7em;
-  }
-
-  .mission-main {
-    margin: 0.7em 0;
-  }
 }
 
 /* === IMAGES === */
 .info-box img,
 .mission-box img,
 .mission-main img,
-.bible-study img,
-.floating-photo {
+.bible-study img {
   width: 180px;
   height: 150px;
-  display: block;
-  object-fit: cover;
   border-radius: 70%;
-  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -253,17 +230,22 @@ main {
 }
 
 /* === BUTTON STYLES === */
+button,
+.search-container button,
+.btn {
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
 button {
   background-color: #2e8b57;
   color: #fff;
-  border: none;
   padding: 0.6em 1.2em;
-  font-size: 1rem;
   font-family: 'Segoe UI', Arial, sans-serif;
-  border-radius: 8px;
-  cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s, transform 0.2s;
 }
 
 button:hover {
@@ -281,16 +263,13 @@ button:focus {
   outline-offset: 3px;
 }
 
-/* === DARK MODE === */
-.dark-mode {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-.dark-mode .topbar,
-.dark-mode footer {
-  background-color: #1f1f1f;
-  color: #ffd700;
+.btn {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 4px;
 }
 
 /* === SEARCH BAR === */
@@ -306,12 +285,12 @@ button:focus {
 .search-container input[type="text"] {
   padding: 6px;
   width: 150px;
-  border: none;
   border-radius: 4px 0 0 4px;
   font-size: 14px;
-  transition: all 0.3s ease;
   background-color: #fff;
   color: #000;
+  transition: all 0.3s ease;
+  border: none;
 }
 
 .search-container input[type="text"]:focus {
@@ -325,14 +304,75 @@ button:focus {
   padding: 6px 10px;
   background-color: #28a745;
   color: white;
-  border: none;
   border-radius: 0 4px 4px 0;
   font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .search-container button:hover {
   background-color: #218838;
   transform: translateY(-1px);
 }
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 900px) {
+  .bottom-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .info-row,
+  .mission-row {
+    flex-direction: column;
+    gap: 0.7em;
+  }
+  .mission-main {
+    margin: 0.7em 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .bottom-row {
+    grid-template-columns: 1fr;
+  }
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+  .large-box {
+    grid-column: auto;
+  }
+  .search-container {
+    display: none;
+  }
+}
+
+/* === DARK MODE === */
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .topbar,
+.dark-mode footer {
+  background-color: #1f1f1f;
+  color: #ffd700;
+}
+
+/* === MEDICAL LINK STYLE === */
+.imed-link {
+  display: inline-block;
+  color: #1f6f78;
+  font-weight: bold;
+  font-size: 1.05rem;
+  text-decoration: none;
+  border-left: 4px solid #09e276;
+  padding: 0.4em 0.6em;
+  background-color: #f1f8f9;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.imed-link:hover {
+  background-color: #e0f7fa;
+  color: #095f63;
+  transform: scale(1.03);
+  text-decoration: underline;
+}
+

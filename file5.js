@@ -21,3 +21,24 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+
+
+
+
+
+// Load Harrison's reference when clicking a specialty
+document.getElementById('Imed1').addEventListener('click', function() {
+  fetch('data/harrison_pulmonology.json')
+    .then(response => response.json())
+    .then(data => {
+      document.querySelector('.reference-box').innerHTML = `
+        <h4>${data.title}</h4>
+        <p>${data.edition}</p>
+        <p>${data.summary}</p>
+      `;
+    });
+});
+
+
