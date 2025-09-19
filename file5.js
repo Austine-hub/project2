@@ -1,65 +1,53 @@
-// file5.js - Toggles dark mode with local storage support
+// file5.js
 
-// Function to toggle the theme
+// === DARK MODE TOGGLE ===
+// Uses Tailwind's built-in `dark:` variant
 function toggleTheme() {
-  document.body.classList.toggle('dark-mode');
-
-  // Store preference in localStorage
-  if (document.body.classList.contains('dark-mode')) {
-    localStorage.setItem('theme', 'dark');
-  } else {
-    localStorage.setItem('theme', 'light');
-  }
+  document.documentElement.classList.toggle("dark");
 }
 
-// Load theme preference on page load
-window.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-  }
-});
+// === SEARCH FUNCTIONALITY ===
+const searchForm = document.querySelector("form[role='search']");
+const searchInput = document.getElementById("searchInput");
 
+if (searchForm) {
+  searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const query = searchInput.value.trim();
+    if (query) {
+      alert(`Searching for: ${query}`);
+      // TODO: hook this up to your backend or search API
+    }
+  });
+}
 
-// Find all links with class 'imed-link'
-const links = document.querySelectorAll('.imed-link');
+// === JSON REFERENCE LOADING ===
+const imedLinks = document.querySelectorAll(".imed-link");
+const referenceBox = document.querySelector(".reference-box");
 
-// For each link, add a click event listener
-links.forEach(link => {
-  link.addEventListener('click', function(event) {
-    event.preventDefault(); // Stop the link from jumping to top
+imedLinks.forEach((link) => {
+  link.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const refId = link.id;
 
-    const id = event.target.id; // e.g., 'Imed1', 'Imed2', etc.
+    try {
+      // Example JSON fetch (update the file path as needed)
+      const response = await fetch("references.json");
+      const data = await response.json();
 
-    // Build a JSON file path dynamically
-    const jsonPath = `data/harrison_${id.toLowerCase()}.json`;
-
-    fetch(jsonPath)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Check if .reference-box exists
-        const refBox = document.querySelector('.reference-box');
-        if (refBox) {
-          refBox.innerHTML = `
-            <h4>${data.title}</h4>
-            <p>${data.edition}</p>
-            <p>${data.summary}</p>
-          `;
-        } else {
-          // If .reference-box is missing, optionally show an alert
-          console.log('Reference box not found in HTML.');
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching JSON:', error);
-      });
+      if (data[refId]) {
+        referenceBox.innerHTML = `
+          <h3 class="text-lg font-bold text-yellow-400">${data[refId].title}</h3>
+          <p class="mt-1">${data[refId].description}</p>
+          <a href="${data[refId].link}" target="_blank" class="inline-block mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Read More</a>
+        `;
+      } else {
+        referenceBox.innerHTML = `<p class="text-red-400">Reference not found for ${refId}</p>`;
+      }
+    } catch (err) {
+      console.error("Error loading JSON:", err);
+      referenceBox.innerHTML = `<p class="text-red-400">Error loading reference details.</p>`;
+    }
   });
 });
-
-
 
