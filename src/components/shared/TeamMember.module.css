@@ -1,0 +1,44 @@
+/* Root wrapper for each team member */
+.teamMember {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1a1a; /* dark card background */
+  border-radius: 12px;
+  padding: 1rem;
+  width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.teamMember:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Member photo / avatar */
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+  border: 2px solid #0d47a1; /* highlight border color */
+}
+
+/* Member name */
+.name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.25rem;
+  color: #ffffff;
+}
+
+/* Member role / title */
+.role {
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+  color: #bbbbbb;
+}

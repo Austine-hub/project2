@@ -1,0 +1,42 @@
+.aboutUs {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.hero {
+  position: relative;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.5rem;
+}
+
+.mission, .team {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.mission h2, .team h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.teamMembers {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}

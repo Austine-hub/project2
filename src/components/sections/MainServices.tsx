@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./MainServices.module.css";
 
-// Import assets using alias (works after Netlify deploy if alias is configured)
-import banner2 from "@/assets/banner2.png";
-import banner3 from "@/assets/banner3.png";
+// Corrected import paths based on the file structure
+import banner2 from "../../assets/banner2.png";
+import banner3 from "../../assets/banner3.png";
 
 type ServiceBox = {
   title: string;
@@ -16,6 +16,7 @@ type ServiceBox = {
 type Props = {
   boxes?: ServiceBox[];
   sectionLabel?: string;
+  id?: string; // <-- added id for scrolling
 };
 
 const defaultServicesData: ServiceBox[] = [
@@ -53,10 +54,11 @@ const defaultServicesData: ServiceBox[] = [
 
 export default function MainServices({
   boxes = defaultServicesData,
-  sectionLabel = "Our Pharmacy Services"
+  sectionLabel = "Our Pharmacy Services",
+  id // <-- accept id prop
 }: Props) {
   return (
-    <section className={styles.section} aria-label={sectionLabel}>
+    <section id={id} className={styles.section} aria-label={sectionLabel}>
       <h2 className={styles.sectionTitle}>{sectionLabel}</h2>
       <div className={styles.grid}>
         {boxes.map((box, idx) => (
@@ -94,4 +96,3 @@ export default function MainServices({
     </section>
   );
 }
-

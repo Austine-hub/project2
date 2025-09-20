@@ -32,7 +32,7 @@ const Hero = () => {
       setCurrentImageIndex((prevIndex) => 
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 15000); // Change image every 15 seconds
+    }, 8000); // Change image every 15 seconds
 
     return () => clearInterval(interval); // Cleanup on unmount
   }, [images.length]);

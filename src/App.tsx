@@ -5,23 +5,30 @@ import MainServices from "@/components/sections/MainServices";
 import ShopCategory from "@/components/sections/ShopCategory";
 import InfoRow from "@/components/layout/main/InfoRow";
 
-// import Mission from "@/components/sections/Mission";
-// import Harrison from "@/components/sections/Harrison";
+const App: React.FC = () => {
+  // Scroll handler for SPA landing-page sections
+  const handleScrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
 
-const App = () => {
   return (
     <div className="bg-black text-white font-sans min-h-screen">
-      <Header />
+      {/* Header with Topbar + Navbar (Hero included) */}
+      <Header onNavClick={handleScrollToSection} />
+
       <main className="max-w-6xl mx-auto px-4 py-6 space-y-8">
-        <ShopCategory />
-        <MainServices />
-        <InfoRow />
-        {/* <Mission /> */}
-        {/* <Harrison /> */}
+        {/* Landing-page sections */}
+        <ShopCategory id="home" />
+        <MainServices id="services" /> {/* "Our Services" scroll target */}
+        <InfoRow id="branches" />
       </main>
+
       <Footer />
     </div>
   );
 };
 
 export default App;
+
+
