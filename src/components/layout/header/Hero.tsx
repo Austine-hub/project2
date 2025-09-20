@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
 
 // Import your images
-import pharmacistImg from "@/assets/smiling-pharmacist.jpg";
+import pharmacistImg from "@/assets/smiling-pharmacist.png";
 import pharmacyImg from "@/assets/black1.png";
 import medicineImg from "@/assets/black2.png";
 // Add more images as needed
@@ -50,9 +50,9 @@ const Hero = () => {
     );
   };
 
-  const goToSlide = (index) => {
-    setCurrentImageIndex(index);
-  };
+const goToSlide = (index: number) => {
+  setCurrentImageIndex(index);
+};
 
   return (
     <div className={styles.hero}>

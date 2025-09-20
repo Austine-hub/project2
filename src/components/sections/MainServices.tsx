@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./MainServices.module.css";
 
+// Import assets using alias (works after Netlify deploy if alias is configured)
+import banner2 from "@/assets/banner2.png";
+import banner3 from "@/assets/banner3.png";
+
 type ServiceBox = {
   title: string;
   content?: string[];
@@ -21,7 +25,7 @@ const defaultServicesData: ServiceBox[] = [
       "We go beyond medicines; we deliver wellness and personalized care.",
       "Count on our expert team for safe, effective, and compassionate service every time."
     ],
-    image: "photos/banner2.png",
+    image: banner2,
     imageAlt: "Pharmacist holding a prescription bag"
   },
   {
@@ -42,7 +46,7 @@ const defaultServicesData: ServiceBox[] = [
       "Custom compounding of medications for unique patient needs",
       "Wellness products including vitamins, supplements, and herbal care"
     ],
-    image: "photos/banner3.png",
+    image: banner3,
     imageAlt: "Advanced pharmaceutical equipment"
   }
 ];
@@ -90,3 +94,4 @@ export default function MainServices({
     </section>
   );
 }
+

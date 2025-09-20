@@ -1,7 +1,7 @@
 /* SECTION WRAPPER */
 .section {
-  padding: 5rem 1.25rem 3rem; /* added top padding so it clears sticky header */
-  background-color: #f9fafb; /* light neutral background */
+  padding: 5rem 1.25rem 3rem;
+  background-color: #f9fafb;
   color: #1a202c;
   text-align: center;
 }
@@ -10,8 +10,8 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2.5rem;
-  color: #0d47a1; /* hospital blue */
-  border-bottom: 3px solid #4caf50; /* green underline accent */
+  color: #0d47a1;
+  border-bottom: 3px solid #4caf50;
   display: inline-block;
   padding-bottom: 0.3rem;
 }
@@ -27,7 +27,7 @@
 
 /* SERVICE CARD */
 .card {
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 0.75rem;
   padding: 1.75rem;
@@ -45,7 +45,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #1565c0; /* brighter blue */
+  color: #1565c0;
 }
 
 /* LISTS */
@@ -61,20 +61,31 @@
   margin-bottom: 0.6rem;
   line-height: 1.6;
   font-size: 0.95rem;
-  color: #374151; /* softer text */
+  color: #374151;
 }
 
-/* IMAGES */
+/* ===== MODERN IMAGE STYLING ===== */
 .imageWrapper {
-  margin-top: 1rem;
-  text-align: center;
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-  border: 2px solid #e0f2f1; /* light teal border */
+  width: 100%;
+  max-width: 350px;       /* keeps images balanced inside grid */
+  aspect-ratio: 4 / 3;    /* prevents layout shift (modern) */
+  object-fit: cover;      /* crops gracefully */
+  border-radius: 0.75rem; /* smoother rounded corners */
+  border: 1px solid #e0f2f1;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
 }
 
 /* RESPONSIVE BREAKPOINTS */
@@ -88,5 +99,38 @@
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .image {
+    max-width: 100%; /* allow flexibility on bigger screens */
+  }
 }
 
+/* Update the existing list selectors */
+.contentList,
+.servicesList {
+  list-style: none; /* Remove default bullets */
+  margin: 0.5rem 0 1rem 0;
+  padding-left: 0; /* Remove default padding for lists */
+}
+
+/* Style the list items with a custom bullet */
+.contentList li,
+.servicesList li {
+  position: relative; /* Needed for positioning the ::before element */
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #374151;
+  padding-left: 1.5em; /* Add space for the new bullet */
+}
+
+/* Create the custom bullet using ::before */
+.contentList li::before,
+.servicesList li::before {
+  content: "⚕️"; /* The Unicode character */
+  color: #4caf50; /* Pharmacy green color */
+  font-size: 1.2em;
+  position: absolute;
+  left: 0;
+  top: 0.2em; /* Adjust vertical alignment */
+}

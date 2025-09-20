@@ -1,5 +1,9 @@
 // src/components/layout/main/infoRowData.ts
-import { InfoBoxProps } from "./InfoBox";
+// Import images so bundlers (Vite, Webpack, CRA, Next.js) handle them correctly
+import { InfoBoxProps } from "../../../types/InfoBox.types";
+import pharmacy1 from "@/assets/photos/pharmacy1.png";
+import pharmacy2 from "@/assets/photos/pharmacy2.png";
+import pharmacy3 from "@/assets/photos/pharmacy3.png";
 
 export const infoRowData: InfoBoxProps[] = [
   {
@@ -8,7 +12,7 @@ export const infoRowData: InfoBoxProps[] = [
       "Licensed professionals at your service",
       "Safe, effective, and affordable medication",
     ],
-    image: "photos/pharmacy1.png",
+    image: pharmacy1,
     imageAlt: "Trusted pharmacist",
   },
   {
@@ -17,7 +21,7 @@ export const infoRowData: InfoBoxProps[] = [
       "Medication adherence counseling",
       "Confidential and compassionate care",
     ],
-    image: "photos/pharmacy2.png",
+    image: pharmacy2,
     imageAlt: "Patient consultation",
   },
   {
@@ -26,7 +30,7 @@ export const infoRowData: InfoBoxProps[] = [
       "Reliable supply chain for clinics",
       "Emergency drug availability",
     ],
-    image: "photos/pharmacy3.png",
+    image: pharmacy3,
     imageAlt: "Hospital collaboration",
   },
 ];
