@@ -1,0 +1,30 @@
+/* === NAVIGATION === */
+.navbar {
+  background: #1565c0; /* deep blue */
+  border-bottom: 2px solid #4caf50;
+}
+
+.navList {
+  margin: 0;
+  padding: 0.8rem 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* better on small screens */
+}
+
+.navLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+  padding: 0.5em 0.8em;
+  border-radius: 4px;
+}
+
+.navLink:hover {
+  background: #4caf50;
+  color: #fff;
+}

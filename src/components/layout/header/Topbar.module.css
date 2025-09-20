@@ -1,0 +1,76 @@
+/* === TOPBAR === */
+.topbar {
+  background: #0d47a1; /* hospital blue */
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 32px;
+  border-bottom: 4px solid #4caf50; /* pharmacy green */
+}
+
+.siteTitle {
+  font-size: 1.6em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.siteTitle span {
+  color: #4caf50; /* green accent */
+}
+
+/* === Actions (search + theme toggle) === */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* === SEARCH BAR === */
+.searchContainer {
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 8px 10px;
+  width: 180px;
+  border-radius: 4px 0 0 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 5px #4caf50;
+}
+
+.searchBtn {
+  padding: 8px 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+  background-color: #388e3c;
+}
+
+/* === THEME BUTTON === */
+.themeBtn {
+  background-color: #2196f3;
+  color: #fff;
+  padding: 0.45em 0.9em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.themeBtn:hover {
+  background-color: #1976d2;
+}
