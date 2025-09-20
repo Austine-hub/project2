@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaMoon } from "react-icons/fa";
 import styles from "./Topbar.module.css";
 
 const Topbar = () => {
@@ -63,9 +64,9 @@ const Topbar = () => {
           className={styles.themeBtn}
           aria-label="Toggle light/dark theme"
         >
-          🌓
+            <FaMoon className={styles.moon} />
         </button>
-      </div>
+     </div>
     </div>
   );
 };
