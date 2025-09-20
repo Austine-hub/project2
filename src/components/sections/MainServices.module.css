@@ -1,6 +1,6 @@
 /* SECTION WRAPPER */
 .section {
-  padding: 3rem 1.25rem;
+  padding: 5rem 1.25rem 3rem; /* added top padding so it clears sticky header */
   background-color: #f9fafb; /* light neutral background */
   color: #1a202c;
   text-align: center;

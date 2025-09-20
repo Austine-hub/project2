@@ -1,4 +1,8 @@
-/* === TOPBAR === */
+/*
+ * ====================
+ * GLOBAL TOPBAR STYLES
+ * ====================
+ */
 .topbar {
   background: #0d47a1; /* hospital blue */
   color: #ffffff;
@@ -9,6 +13,11 @@
   border-bottom: 4px solid #4caf50; /* pharmacy green */
 }
 
+/*
+ * ====================
+ * SITE TITLE STYLES
+ * ====================
+ */
 .siteTitle {
   font-size: 1.6em;
   font-weight: 700;
@@ -19,48 +28,74 @@
   color: #4caf50; /* green accent */
 }
 
-/* === Actions (search + theme toggle) === */
+/*
+ * ====================
+ * ACTION ITEMS STYLES
+ * ====================
+ */
 .actions {
   display: flex;
   align-items: center;
   gap: 0.8rem;
 }
 
-/* === SEARCH BAR === */
+/*
+ * ====================
+ * SEARCH BAR STYLES
+ * ====================
+ */
 .searchContainer {
   display: flex;
   align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  background: white;
 }
 
 .searchInput {
-  padding: 8px 10px;
-  width: 180px;
-  border-radius: 4px 0 0 4px;
-  border: 1px solid #ccc;
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  outline: none;
   font-size: 14px;
 }
 
-.searchInput:focus {
+.categorySelect {
+  padding: 12px 16px;
+  border: none;
+  border-left: 1px solid #ddd;
   outline: none;
-  border-color: #4caf50;
-  box-shadow: 0 0 5px #4caf50;
+  background: #f8f9fa;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.categorySelect:hover {
+  background: #e9ecef;
 }
 
 .searchBtn {
-  padding: 8px 12px;
-  background-color: #4caf50;
-  color: white;
+  padding: 12px 16px;
   border: none;
-  border-radius: 0 4px 4px 0;
-  font-size: 16px;
+  background: #575ea0; /* Your orange color */
+  color: white;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
 }
 
 .searchBtn:hover {
-  background-color: #388e3c;
+  background: #2508a7; /* Slightly darker orange for hover */
 }
 
-/* === THEME BUTTON === */
+/*
+ * ====================
+ * THEME BUTTON STYLES
+ * ====================
+ */
 .themeBtn {
   background-color: #2196f3;
   color: #fff;
@@ -69,6 +104,7 @@
   border-radius: 6px;
   cursor: pointer;
   font-size: 1em;
+  transition: background-color 0.2s; /* Added a transition */
 }
 
 .themeBtn:hover {

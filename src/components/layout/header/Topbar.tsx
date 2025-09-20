@@ -2,40 +2,40 @@ import React, { useState } from "react";
 import styles from "./Topbar.module.css";
 
 const Topbar = () => {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState("light");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
-  // Toggle light/dark theme
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     document.documentElement.classList.toggle("dark-mode");
   };
 
-  // Handle search form submit
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      alert(`Searching for: ${searchQuery}`);
+      // In a real application, you'd perform a search here,
+      // likely navigating to a search results page or filtering data.
+      console.log(`Searching for "${searchQuery}" in category: "${selectedCategory}"`);
     }
   };
 
   return (
     <div className={styles.topbar}>
-      {/* === Site Title / Logo === */}
       <h1 className={styles.siteTitle}>
         AjanjaCare <span>Pharmacy &amp; Health</span>
       </h1>
 
-      {/* === Actions (Search + Theme Toggle) === */}
       <div className={styles.actions}>
-        {/* Search Bar */}
         <form
           onSubmit={handleSearch}
           role="search"
           className={styles.searchContainer}
         >
+          <label htmlFor="searchInput" className="sr-only">Search</label>
           <input
+            id="searchInput"
             type="text"
             placeholder="Search medicines, services..."
             aria-label="Search this site"
@@ -43,12 +43,21 @@ const Topbar = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
             className={styles.searchInput}
           />
-          <button type="submit" className={styles.searchBtn}>
-            🔍
-          </button>
+          <label htmlFor="categorySelect" className="sr-only">Category</label>
+          <select
+            id="categorySelect"
+            className={styles.categorySelect}
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="all">All categories</option>
+            <option value="medicines">Medicines</option>
+            <option value="services">Services</option>
+            <option value="equipment">Equipment</option>
+          </select>
+          <button type="submit" className={styles.searchBtn}>🔍</button>
         </form>
 
-        {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
           className={styles.themeBtn}
