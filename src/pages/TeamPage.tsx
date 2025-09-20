@@ -6,20 +6,26 @@ import TeamSection from "@/components/sections/TeamSection";
 const TeamPage: React.FC = () => {
   return (
     <div className="bg-black text-white font-sans min-h-screen">
-      {/* Header + Navbar */}
-      <Header />
+      {/* Header + Navbar only, Hero removed */}
+      <Header hideHero={true} />
 
       <main className="max-w-6xl mx-auto px-4 py-6">
-        {/* Team Section */}
+        {/* TeamSection only renders here */}
         <TeamSection />
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
 };
 
 export default TeamPage;
+
+
+
+
+
+
+
 
 

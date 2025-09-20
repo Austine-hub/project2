@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* Your custom CSS below */
-
-
-
+:root {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* matches header height */
+}

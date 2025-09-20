@@ -2,7 +2,8 @@
 .header {
   width: 100%;
   font-family: "Segoe UI", Roboto, sans-serif;
-  /* No need for position: relative; here */
+  display: block;
+  /* No bottom margin needed — we'll handle spacing via header height */
 }
 
 /* Sticky wrapper for Topbar + Navbar */
@@ -10,6 +11,21 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #ffffff; /* solid background so content doesn’t bleed through */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+  background: #000000; /* or #ffffff if you switch to light theme */
+  display: flex;
+  flex-direction: column;
+
+  /* ✅ Explicit height for predictable layout */
+  --header-height: 80px; /* define once, reuse everywhere */
+  height: var(--header-height);
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+
+/* ✅ Make global scroll snapping respect header height */
+:root {
+  scroll-padding-top: var(--header-height);
+}
+
+
+
