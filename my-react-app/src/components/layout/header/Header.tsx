@@ -1,131 +1,93 @@
-import React from 'react';
+import React, { useState } from "react";
+import styles from "./Header.module.css";
+import pharmacistImg from "@/assets/smiling-pharmacist.jpg";
 
 const Header = () => {
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [searchQuery, setSearchQuery] = useState("");
+
   const toggleTheme = () => {
-    // Theme toggle functionality would be implemented here
-    console.log('Theme toggled');
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.classList.toggle("dark-mode");
   };
 
-  const handleSearch = () => {
-    const searchInput = document.getElementById('searchInput');
-    console.log('Search:', searchInput?.value);
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      alert(`Searching for: ${searchQuery}`);
+    }
   };
 
   return (
-    <header role="banner" className="w-full">
-      {/* Skip Link */}
-      <a 
-        href="#main-content" 
-        className="absolute left-[-9999px] top-auto w-px h-px overflow-hidden focus:left-0 focus:w-auto focus:h-auto focus:bg-blue-600 focus:text-white focus:p-2 focus:z-50"
-        style={{position:'absolute', left:'-9999px', top:'auto', width:'1px', height:'1px', overflow:'hidden'}}
-      >
-        Skip to main content
-      </a>
+    <header className={styles.header}>
+      {/* === STICKY WRAPPER === */}
+      <div className={styles.headerSticky}>
+        {/* === TOP BAR === */}
+        <div className={styles.topbar}>
+          <h1 className={styles.siteTitle}>
+            AjanjaCare <span>Pharmacy &amp; Health</span>
+          </h1>
 
-      {/* TopBar */}
-      <div className="flex items-center justify-between p-4 bg-white border-b">
-        <img 
-          src="photos/logo1.png" 
-          alt="AjanjaCare Pharmaceuticals logo" 
-          className="h-12 w-auto"
-        />
-        <h1 className="text-2xl font-bold text-center flex-1 mx-4">
-          AjanjaCare Pharmaceuticals AFRICA
-        </h1>
-        <button 
-          onClick={toggleTheme}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-        >
-          Toggle Theme
-        </button>
-        <img 
-          src="photos/logo1.png" 
-          alt="AjanjaCare Pharmaceuticals logo" 
-          className="h-12 w-auto ml-4"
-        />
-      </div>
+          <div className={styles.actions}>
+            <form
+              onSubmit={handleSearch}
+              role="search"
+              className={styles.searchContainer}
+            >
+              <input
+                type="text"
+                placeholder="Search medicines, services..."
+                aria-label="Search this site"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className={styles.searchInput}
+              />
+              <button type="submit" className={styles.searchBtn}>
+                🔍
+              </button>
+            </form>
 
-      {/* Navbar */}
-      <nav role="navigation" aria-label="Main site navigation" className="bg-gray-100 border-b">
-        <ul className="flex justify-center space-x-8 py-3">
-          <li>
-            <a 
-              href="#" 
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+            <button
+              onClick={toggleTheme}
+              className={styles.themeBtn}
+              aria-label="Toggle light/dark theme"
             >
-              Home
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#" 
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-            >
-              Branches
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#" 
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-            >
-              About Us
-            </a>
-          </li>
-          <li>
-            <a 
-              href="#" 
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-            >
-              Our Experts
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      {/* Banner */}
-      <div className="relative bg-gradient-to-r from-blue-50 to-green-50 py-8" role="region" aria-label="Promotional Banner">
-        {/* Search Container */}
-        <div className="flex justify-center mb-6" role="search">
-          <div className="flex items-center bg-white rounded-full shadow-md overflow-hidden">
-            <input 
-              type="text" 
-              placeholder="Search..." 
-              id="searchInput" 
-              aria-label="Search this site"
-              className="px-6 py-3 w-80 outline-none text-gray-700"
-            />
-            <button 
-              id="searchBtn" 
-              aria-label="Submit search"
-              onClick={handleSearch}
-              className="px-4 py-3 bg-blue-500 text-white hover:bg-blue-600 transition-colors"
-            >
-              🔍
+              🌓
             </button>
           </div>
         </div>
 
-        {/* Banner Sub-section */}
-        <div className="flex items-center justify-between max-w-6xl mx-auto px-6">
-          <img 
-            src="photos/banner1.png" 
-            alt="Smiling pharmacist with a client" 
-            className="w-64 h-64 object-cover rounded-lg shadow-lg"
-          />
-          
-          <div className="text-center max-w-2xl" role="presentation">
-            <p className="text-2xl font-semibold text-gray-800 mb-3">
-              Your Trusted Partner in Health &amp; Wellness.
-            </p>
-            <p className="text-xl text-gray-700 mb-3">
-              Serving You, Beyond the Counter.
-            </p>
-            <p className="text-xl text-gray-700">
-              Because Your Health Is Our Priority.
-            </p>
-          </div>
-        </div>
+        {/* === NAVIGATION === */}
+        <nav className={styles.navbar} aria-label="Main navigation">
+          <ul className={styles.navList}>
+            <li><a href="#" className={styles.navLink}>Home</a></li>
+            <li><a href="#" className={styles.navLink}>Our Services</a></li>
+            <li><a href="#" className={styles.navLink}>Pharmacy Branches</a></li>
+            <li><a href="#" className={styles.navLink}>About Us</a></li>
+            <li><a href="#" className={styles.navLink}>Health Experts</a></li>
+            <li><a href="#" className={styles.navLink}>Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      {/* === HERO / BANNER === */}
+      <div className={styles.banner}>
+        <img
+          src={pharmacistImg}
+          alt="Friendly pharmacist assisting a patient"
+          className={styles.bannerImg}
+        />
+      </div>
+
+      <div className={styles.bannerOverlay}>
+        <h2 className={styles.bannerTitle}>Your Trusted Health Partner</h2>
+        <p className={styles.bannerSubtitle}>
+          Safe. Reliable. Compassionate Care for You &amp; Your Family.
+        </p>
+        <a href="#services" className={styles.ctaBtn}>
+          Explore Our Services
+        </a>
       </div>
     </header>
   );
