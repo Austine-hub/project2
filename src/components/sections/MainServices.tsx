@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./MainServices.module.css";
 
 // Corrected import paths based on the file structure
@@ -16,7 +16,7 @@ type ServiceBox = {
 type Props = {
   boxes?: ServiceBox[];
   sectionLabel?: string;
-  id?: string; // <-- added id for scrolling
+  id?: string;
 };
 
 const defaultServicesData: ServiceBox[] = [
@@ -52,13 +52,21 @@ const defaultServicesData: ServiceBox[] = [
   }
 ];
 
-export default function MainServices({
-  boxes = defaultServicesData,
-  sectionLabel = "Our Pharmacy Services",
-  id // <-- accept id prop
-}: Props) {
+const MainServices: React.ForwardRefRenderFunction<HTMLElement, Props> = (
+  {
+    boxes = defaultServicesData,
+    sectionLabel = "Our Pharmacy Services",
+    id,
+  },
+  ref
+) => {
   return (
-    <section id={id} className={styles.section} aria-label={sectionLabel}>
+    <section
+      id={id}
+      ref={ref} // Attach the ref to the section element
+      className={styles.section}
+      aria-label={sectionLabel}
+    >
       <h2 className={styles.sectionTitle}>{sectionLabel}</h2>
       <div className={styles.grid}>
         {boxes.map((box, idx) => (
@@ -95,4 +103,6 @@ export default function MainServices({
       </div>
     </section>
   );
-}
+};
+
+export default forwardRef(MainServices);
